@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Picture Perfect</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-current-screen="home">
+  <main class="site-shell" aria-label="Picture Perfect photobooth experience">
+    <section class="artboard screen home-screen" data-screen="home" aria-label="Picture Perfect home page">
+      <img class="home-logo" src="assets/logo/logo.png" alt="Picture Perfect" />
+      <button class="camera-button" type="button" aria-label="Start Picture Perfect photobooth">
+        <img src="assets/buttons/camera.png" alt="" />
+      </button>
+      <div class="click-group" aria-hidden="true">
+        <p class="click-text">Click me</p>
+        <svg class="click-arrow" viewBox="0 0 220 230" role="presentation">
+          <path class="arrow-line" d="M165 8 C170 85 140 150 67 190" />
+          <path class="arrow-head" d="M70 160 L58 196 L96 189" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="artboard screen camera-screen is-hidden" data-screen="camera" aria-label="Take your Picture camera page">
+      <h1 class="camera-title display">Take your Picture</h1>
+      <div class="camera-preview" aria-label="Live camera preview">
+        <video class="camera-video" autoplay playsinline muted></video>
+        <div class="camera-countdown display" aria-live="polite"></div>
+        <div class="camera-flash" aria-hidden="true"></div>
+      </div>
+      <button class="capture-button" type="button" aria-label="Capture photo"><span></span></button>
+      <p class="camera-instruction">Click the button and pose!</p>
+      <canvas class="capture-canvas" hidden></canvas>
+    </section>
+
+    <section class="artboard screen drawing-screen is-hidden" data-screen="drawing" aria-label="Draw on your picture page">
+      <h1 class="drawing-title display">Draw on your picture in 30 seconds</h1>
+      <div class="drawing-photo-wrap">
+        <img class="captured-preview" alt="Captured preview" />
+        <canvas class="drawing-canvas" width="716" height="446" aria-label="Drawing canvas"></canvas>
+      </div>
+      <div class="tool-stack" aria-label="Drawing tools">
+        <button class="tool-button paint-tool is-active" type="button" data-tool="paint"><img src="assets/buttons/paint-brush-button.png" alt="Paint brush" /></button>
+        <button class="tool-button pen-tool" type="button" data-tool="pen"><img src="assets/buttons/pen-button.png" alt="Pen" /></button>
+        <button class="tool-button pencil-tool" type="button" data-tool="pencil"><img src="assets/buttons/pencil-button.png" alt="Pencil" /></button>
+      </div>
+      <div class="palette" aria-label="Color palette">
+        <img class="palette-base" src="assets/palette/palette-base.png" alt="" />
+        <button class="swatch swatch-1" type="button" data-color="#C90000"><img src="assets/palette/ellipse-3.png" alt="Red" /></button>
+        <button class="swatch swatch-2" type="button" data-color="#F70711"><img src="assets/palette/ellipse-4.png" alt="Bright red" /></button>
+        <button class="swatch swatch-3" type="button" data-color="#FF9F09"><img src="assets/palette/ellipse-5.png" alt="Orange" /></button>
+        <button class="swatch swatch-4" type="button" data-color="#FFC20A"><img src="assets/palette/ellipse-6.png" alt="Yellow" /></button>
+        <button class="swatch swatch-5" type="button" data-color="#489200"><img src="assets/palette/ellipse-7.png" alt="Green" /></button>
+        <button class="swatch swatch-6" type="button" data-color="#0D967D"><img src="assets/palette/ellipse-8.png" alt="Teal" /></button>
+        <button class="swatch swatch-7" type="button" data-color="#088BA9"><img src="assets/palette/ellipse-9.png" alt="Blue green" /></button>
+        <button class="swatch swatch-8" type="button" data-color="#0F83C3"><img src="assets/palette/ellipse-10.png" alt="Blue" /></button>
+        <button class="swatch swatch-9" type="button" data-color="#7092C9"><img src="assets/palette/ellipse-11.png" alt="Periwinkle" /></button>
+        <button class="swatch swatch-10" type="button" data-color="#9167C3"><img src="assets/palette/ellipse-12.png" alt="Purple" /></button>
+        <button class="swatch swatch-11" type="button" data-color="#F24BAD"><img src="assets/palette/ellipse-13.png" alt="Pink" /></button>
+        <button class="swatch swatch-12" type="button" data-color="#EDA4D5"><img src="assets/palette/ellipse-14.png" alt="Light pink" /></button>
+      </div>
+      <label class="brush-control"><span>Brush Size</span><input class="brush-size" type="range" min="2" max="32" value="9" /></label>
+      <div class="timer-frame" aria-label="Timer"><img src="assets/buttons/frame.png" alt="" /><span class="display">30</span></div>
+    </section>
+
+    <section class="artboard screen about-screen is-hidden" data-screen="about" aria-label="About the project page">
+      <div class="polaroid"><div class="polaroid-photo"><img class="final-photo" alt="Final creation" /></div></div>
+      <article class="info-card about-card">
+        <h2 class="display">About the project</h2>
+        <p>Picture Perfect is an interactive disposable camera experience that invites participants to challenge the idea of perfection. By taking a photo and drawing or writing over it, users transform their image into something personal, imperfect, and uniquely their own. The project encourages reflection on how perfectionism can shape the way we see ourselves and celebrates the beauty found in creative self-expression.</p>
+      </article>
+      <article class="info-card why-card">
+        <h2 class="display">Why Participation Matters</h2>
+        <p>Every mark tells a story. By altering your photo, <strong>you actively disrupt the pressure to appear flawless and embrace the imperfections that make us human.</strong> Through participation, the project creates a space for reflection, <strong>helping people recognize that growth, creativity, and self-worth</strong> do not come from being perfect, but from <strong>being authentic.</strong></p>
+      </article>
+      <button class="continue-button display" type="button">Continue</button>
+    </section>
+
+    <section class="artboard screen consent-screen is-hidden" data-screen="consent" aria-label="Consent page">
+      <h1 class="consent-title display">Would you like to be featured in our zine</h1>
+      <div class="decision-lines" aria-hidden="true"></div>
+      <button class="choice-button yes-choice" type="button"><img src="assets/buttons/yes-button.png" alt="Yes" /></button>
+      <button class="choice-button no-choice" type="button"><img src="assets/buttons/no-button.png" alt="No" /></button>
+      <p class="choice-message yes-message">Perfect! Your image may be featured in an edition of our only edition!</p>
+      <p class="choice-message no-message">No Worries! you can still save your image and keep the memories!</p>
+    </section>
+
+    <section class="artboard screen consent-screen consent-message-screen is-hidden" data-screen="consent-yes" aria-label="Yes hover state">
+      <h1 class="consent-title display">Would you like to be featured in our zine</h1>
+      <div class="decision-lines" aria-hidden="true"></div>
+      <button class="choice-button yes-choice is-hovered" type="button"><img src="assets/buttons/yes-button.png" alt="Yes" /></button>
+      <button class="choice-button no-choice" type="button"><img src="assets/buttons/no-button.png" alt="No" /></button>
+      <p class="choice-message yes-message">Perfect! Your image may be featured in an edition of our only edition!</p>
+    </section>
+
+    <section class="artboard screen consent-screen consent-message-screen is-hidden" data-screen="consent-no" aria-label="No hover state">
+      <h1 class="consent-title display">Would you like to be featured in our zine</h1>
+      <div class="decision-lines" aria-hidden="true"></div>
+      <button class="choice-button yes-choice" type="button"><img src="assets/buttons/yes-button.png" alt="Yes" /></button>
+      <button class="choice-button no-choice is-hovered" type="button"><img src="assets/buttons/no-button.png" alt="No" /></button>
+      <p class="choice-message no-message">No Worries! you can still save your image and keep the memories!</p>
+    </section>
+
+    <section class="artboard screen result-screen yes-result-screen is-hidden" data-screen="yes-result" aria-label="Yes result page">
+      <h1 class="result-title display">That<span class="punct-text">’</span>s Great<img class="punct-img" src="assets/punctuation/exclamation.png" alt="!" /></h1>
+      <p class="result-copy yes-copy">Thank you for contributing to our zine.</p>
+      <div class="result-actions">
+        <button class="result-button download-button display" type="button">Download your<br />creation</button>
+        <button class="result-button create-button display" type="button">Create<br />another</button>
+      </div>
+      <a class="follow-link" href="https://www.instagram.com/zbbyarchive/">Follow for more updates!: @zbbyarchive</a>
+    </section>
+
+    <section class="artboard screen result-screen no-result-screen is-hidden" data-screen="no-result" aria-label="No result page">
+      <h1 class="result-title display">That<span class="punct-text">’</span>s Alright<img class="punct-img" src="assets/punctuation/exclamation.png" alt="!" /></h1>
+      <p class="result-copy">Thank you for participating.<br />We hope you had fun creating with us.</p>
+      <div class="result-actions">
+        <button class="result-button download-button display" type="button">Download your<br />creation</button>
+        <button class="result-button create-button display" type="button">Create<br />another</button>
+      </div>
+      <a class="follow-link" href="https://www.instagram.com/zbbyarchive/">Follow for more updates!: @zbbyarchive</a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

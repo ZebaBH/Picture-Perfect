@@ -1,0 +1,16 @@
+{
+  "name": "picture-perfect",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "get-refresh-token": "node tools/get-refresh-token.js"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^34.0.0"
+  }
+}
