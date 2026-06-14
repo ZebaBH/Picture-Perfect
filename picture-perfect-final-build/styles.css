@@ -127,39 +127,3 @@
     color: #EAE0C6 !important;
   }
 }
-
-/* Mobile Safari edge fix: scale the 402px mobile artboard by viewport width,
-   not viewport height, so the background fills the full screen width. */
-@media (max-width:640px){
-  html,
-  body{
-    width:100%;
-    min-height:100%;
-    overflow-x:hidden;
-    overflow-y:auto;
-    background:#eae0c6;
-  }
-
-  .site-shell{
-    position:relative;
-    inset:auto;
-    display:block;
-    width:100vw;
-    min-height:100svh;
-    overflow-x:hidden;
-    overflow-y:visible;
-    background:#eae0c6;
-  }
-
-  .artboard{
-    transform:scale(calc(100vw / 402)) !important;
-    transform-origin:top left !important;
-    margin:0 !important;
-  }
-
-  .site-shell::after{
-    content:"";
-    display:block;
-    height:max(0px, calc((874px * (100vw / 402)) - 874px));
-  }
-}
