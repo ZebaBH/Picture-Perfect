@@ -327,18 +327,25 @@ function downloadImage(dataUrl = finalImageData()) {
 }
 
 async function uploadFinalImage(dataUrl) {
-  const response = await fetch(UPLOAD_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      imageData: dataUrl,
-      filename: `picture-perfect-${Date.now()}.png`,
-    }),
-  });
+  if (!dataUrl) throw new Error('No final image found to upload.');
+
+  let response;
+  try {
+    response = await fetch(UPLOAD_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        imageData: dataUrl,
+        filename: `picture-perfect-${Date.now()}.png`,
+      }),
+    });
+  } catch (error) {
+    throw new Error('Could not reach the upload API. Make sure /api/upload is deployed on Vercel.');
+  }
 
   const payload = await response.json().catch(() => ({}));
   if (!response.ok || !payload.ok) {
-    throw new Error(payload.error || 'Upload failed');
+    throw new Error(payload.error || 'Google Drive upload failed.');
   }
 
   return payload;
